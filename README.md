@@ -15,3 +15,4 @@
 3. Midjourney：文字生成图片
 4. Luma：文字生成视频/图片生成视频
 5. Hedra：音频+人物照片生成人物说话视频
+6. Knowledge-Base：知识库机器人问答
