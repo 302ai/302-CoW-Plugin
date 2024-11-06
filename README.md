@@ -10,9 +10,11 @@
 }
 ```
 ## 支持列表
-1. FishAudio：语音转文字/声音克隆
-2. Flux-Pro：文字生成图片
-3. Midjourney：文字生成图片
-4. Luma：文字生成视频/图片生成视频
-5. Hedra：音频+人物照片生成人物说话视频
-6. Knowledge-Base：知识库机器人问答
+| 名称 | 描述 | 插件名 |
+|------|------|--------|
+| FishAudio | 语音转文字/声音克隆 | FishAudio |
+| Flux-Pro | 文字生成图片 | fluxpro |
+| Midjourney | 文字生成图片 | Hedra |
+| Luma | 文字生成视频/图片生成视频 | Lumatext2video |
+| Hedra | 音频+人物照片生成人物说话视频 | midjourney |
+| Knowledge-Base | 知识库机器人问答 | knowledge_base_chat |
