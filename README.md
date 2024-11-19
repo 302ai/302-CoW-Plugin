@@ -15,5 +15,5 @@
 | PaintBot | 文字生成图片 | T2P |
 | FishAudio | 语音转文字/声音克隆 | FishAudio |
 | Luma | 文字生成视频/图片生成视频 | Lumatext2video |
-| Hedra | 音频+人物照片生成人物说话视频 | midjourney |
+| Hedra | 音频+人物照片生成人物说话视频 | Hedra |
 | Knowledge-Base | 知识库机器人问答 | knowledge_base_chat |
