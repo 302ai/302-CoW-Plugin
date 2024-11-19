@@ -1,6 +1,6 @@
 # 302-CoW-Plugin
 ## 功能介绍
-将302.AI的功能通过插件接入到Chat-on-Wechat
+将302.AI的功能通过插件接入到[Chat-on-Wechat](https://github.com/zhayujie/chatgpt-on-wechat)
 
 请先注册[302.AI](https://302.ai)，将302的API KEY填入Config.json文件里，将文件夹复制到Plugin文件夹即可使用插件。[插件使用教程](https://help.302.ai/docs/jie-ru-dao-CoW-chatgptonwechat)
 
