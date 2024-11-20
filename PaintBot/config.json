@@ -1,3 +1,13 @@
 {
-    "api_key": "sk-xxx"
+    "api_key": "sk-xxx",
+    "model_lists": [
+        "fluxpro_v10",
+        "fluxpro_v11",
+        "fluxultra_v11",
+        "fluxdev",
+        "fluxschnell",
+        "midjourney",
+        "ideogram",
+        "recraft"
+    ]
 }
