@@ -596,5 +596,5 @@ class T2P(Plugin):
         self.e_context["channel"].send(reply, self.e_context["context"])
 
     def get_help_text(self, **kwargs):
-        help_text = f"指令：【切换绘图模型@模型名】\n例如：【切换绘图模型@midjourney】\n目前可用模型有：fluxpro_v10（默认）、midjourney、ideogram、recraft、fluxpro_v11、fluxultra_v11、fluxdev、fluxschnell"
+        help_text = f"指令：【切换绘图模型 模型名】\n例如：【切换绘图模型 midjourney】\n目前可用模型有：fluxpro_v10（默认）、midjourney、ideogram、recraft、fluxpro_v11、fluxultra_v11、fluxdev、fluxschnell"
         return help_text
