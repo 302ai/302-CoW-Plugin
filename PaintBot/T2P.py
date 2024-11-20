@@ -195,8 +195,8 @@ class T2P(Plugin):
     # translate
     def translate(self, chinese_text: str):
         try:
-            url = "https://api.302.ai/v1/chat/completions"
-            payload = json.dumps({"model": "deepl-en", "message": f"{chinese_text}"})
+            url = "https://api.302.ai/deepl/v2/translate"
+            payload = json.dumps({"target_lang": "EN", "text": [f"{chinese_text}"]})
             headers = {
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {self.config_data['api_key']}",
@@ -205,16 +205,16 @@ class T2P(Plugin):
             # return "hello"
             response = requests.post(url=url, data=payload, headers=headers)
             rjson = response.json()
-            if response.status_code != 200 or "output" not in rjson:
+            if response.status_code != 200 or "translations" not in rjson:
                 logger.info(
                     f"[{__class__.__name__}] 翻译接口请求失败:{response.status_code}"
                 )
                 return None, ReplyType.ERROR
             else:
                 logger.info(
-                    f"[{__class__.__name__}] 翻译接口获取成功,英文提示词为{rjson['output']}"
+                    f"[{__class__.__name__}] 翻译接口获取成功,英文提示词为{rjson['translations'][0]['text']}"
                 )
-                return rjson["output"]
+                return rjson['translations'][0]['text']
         except Exception as e:
             logger.error(f"[{__class__.__name__}] 翻译接口抛出异常:{e}")
             return None, ReplyType.ERROR
