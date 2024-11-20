@@ -480,10 +480,15 @@ class T2P(Plugin):
                 and (rjson["code"] != 1 or rjson["code"] != 22)
                 and "result" in rjson
             ):
-                return (
-                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
+                self.feedback(
+                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍如果一分钟后没有结果，请发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
                     ReplyType.TEXT,
                 )
+                for i in range(6):
+                    time.sleep(10)
+                    result, result_type = self.midjourney_Fetch(rjson["result"], flag=True)
+                    if result != None:
+                        return result, result_type
             else:
                 logger.info(
                     f"[{__class__.__name__}] midjourney_Action_upsample返回错误{response.text}"
@@ -517,10 +522,15 @@ class T2P(Plugin):
                 and (rjson["code"] != 1 or rjson["code"] != 22)
                 and "result" in rjson
             ):
-                return (
-                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
+                self.feedback(
+                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍如果一分钟后没有结果，请发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
                     ReplyType.TEXT,
                 )
+                for i in range(6):
+                    time.sleep(10)
+                    result, result_type = self.midjourney_Fetch(rjson["result"], flag=True)
+                    if result != None:
+                        return result, result_type
             else:
                 logger.info(
                     f"[{__class__.__name__}] midjourney_Action_variation返回错误{response.text}"
@@ -554,10 +564,15 @@ class T2P(Plugin):
                 and (rjson["code"] != 1 or rjson["code"] != 22)
                 and "result" in rjson
             ):
-                return (
-                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
+                self.feedback(
+                    f"🎉midjourney任务创建成功！\n============\n🆔任务id：{rjson['result']}\n🔍如果一分钟后没有结果，请发送【mj查询 {rjson['result']}】进行查询\n\n您的作品将在1分钟左右完成，请耐心等待...",
                     ReplyType.TEXT,
                 )
+                for i in range(6):
+                    time.sleep(10)
+                    result, result_type = self.midjourney_Fetch(rjson["result"], flag=True)
+                    if result != None:
+                        return result, result_type
             else:
                 logger.info(
                     f"[{__class__.__name__}] midjourney_Action_variation返回错误{response.text}"
