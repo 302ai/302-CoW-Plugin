@@ -1,4 +1,5 @@
 {
     "api_key": "sk-xxxx",
-    "search_model":"pplx-70b-online"
+    "search_model":"pplx-70b-online",
+    "system_prompt":""
 }

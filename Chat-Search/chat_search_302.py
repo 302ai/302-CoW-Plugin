@@ -56,9 +56,17 @@ class chat_search_302(Plugin):
     def chat_search_302(self,prompt):
         try:
             url = "https://api.302.ai/v1/chat/completions"
+            # Define a default system prompt
+            default_system_prompt = ""
+            
+            # Check if system_prompt is empty, and use default if necessary
+            system_prompt = self.config_data.get('system_prompt', '').strip()
+            if not system_prompt:
+                system_prompt = default_system_prompt
+
             payload = json.dumps({
-            "model": self.config_data['search_model'],
-            "message": prompt,
+                "model": self.config_data['search_model'],
+                "messages": [{"role": "user", "content": system_prompt}, {"role": "user", "content": prompt}]
             })
             headers = {
             'Accept': 'application/json',
@@ -69,8 +77,18 @@ class chat_search_302(Plugin):
             response = requests.post(url=url, data=payload, headers=headers)
             rjson = response.json()
             if response.status_code == 200:
-                logger.info(f"[{__class__.__name__}] 搜索接口获取成功{rjson['output']}")
-                return rjson['output'], ReplyType.TEXT
+                # Extracting the message content
+                message_content = rjson['choices'][0]['message']['content']
+                
+                # Extracting and formatting citations
+                citations_list = rjson.get('citations', [])
+                formatted_citations = "\n".join([f"[{index + 1}] {url}" for index, url in enumerate(citations_list)])
+                
+                # Concatenating message content with formatted citations
+                combined_output = f"{message_content}\n{formatted_citations}"
+                
+                logger.info(f"[{__class__.__name__}] 搜索接口获取成功")
+                return combined_output, ReplyType.TEXT
             else:
                 logger.info(f"[{__class__.__name__}] 搜索接口请求失败:{response.status_code}")
                 return None, ReplyType.ERROR
