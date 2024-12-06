@@ -17,4 +17,3 @@
 | Luma | 文字生成视频/图片生成视频 | Lumatext2video |
 | Hedra | 音频+人物照片生成人物说话视频 | Hedra |
 | Knowledge-Base | 知识库机器人问答 | knowledge_base_chat |
-| Chat-Search | 搜关键词自动触发 | chat_search_302 |
